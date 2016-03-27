@@ -9,69 +9,93 @@ using namespace std;
 
 class worker
 {
-    private: string name;
-    private: float salary;
-    private: string admisdata;
-    public: worker AboutWorker()
-    {
-        cout<<"Nome: "<<worker.name<<endl
-            <<"Salario: "<<worker.salary<<endl
-            <<"Data de admissao: "<<worker.admisdata<<endl<<endl;
-        getch();
-        system("cls");
-    };
-    public: worker Inf_Editor()
-    {
-        char op;
-        fflush(stdin);
-        while(op!='4')
+    private:
+        string name;
+        float salary;
+        string admisdate;//data de admissao na empresa
+        string department;
+
+    public:
+        void AboutWorker()
         {
-            while(op='1' || op!='2' || op!='3' || op!='4')
-            {
+            cout<<"Nome: "<<name<<endl
+                <<"Salario: "<<salary<<endl
+                <<"Data de admissao: "<<admisdate<<endl<<endl;
+            getch();
             system("cls");
-            cout<<"Selecione a informacao que deseja editar:"<<endl
-                <<"1-Nome"<<endl
-                <<"2-Salario"<<endl
-                <<"3-Data de admissao"<<endl
-                <<"4-Edicoes terminadas";
-            char op=getch();
-            };
-            if(op=='1')
-            {
-                system("cls");
-                cout<<"Insira o nome do funcionario: ";
-                fflush(stdin);
-                getline(cin,worker.name);
-            }
-            if(op=='2')
-            {
-                system("cls");
-                cout<<"Insira o salario do funcionario: ";
-                cin>>worker.salary;
-            }
-            if(op=='3')
-            {
-                cout<<"Insira a data de admisssao: ";
-                fflush(stdin);
-                getline(cin,worker.admisdata);
-            }
-            if(op=='4')
-            {
-                return;
-            }
         };
-    };
+        void Inf_Editor()
+        {
+            char op;
+            fflush(stdin);
+            while(op!='4')
+            {
+                menu:
+                system("cls");
+                cout<<"Selecione a informacao que deseja editar:"<<endl
+                    <<"1-Nome"<<endl
+                    <<"2-Salario"<<endl
+                    <<"3-Data de admissao"<<endl
+                    <<"4-Edicoes terminadas"<<endl;
+                op=getche();
+                if(op=='1')
+                {
+                    system("cls");
+                    cout<<"Insira o nome do funcionario: ";
+                    cin.ignore();
+                    getline(cin,name);
+                }
+                if(op=='2')
+                {
+                    system("cls");
+                    cout<<"Insira o salario do funcionario: ";
+                    cin>>salary;
+                }
+                if(op=='3')
+                {
+                    system("cls");
+                    cout<<"Insira a data de admisssao: ";
+                    cin.ignore();
+                    getline(cin,admisdate);
+                }
+                if(op=='4')
+                {
+                    system("cls");
+                    return;
+                }
+                else{goto menu;}
+            };
+        };
 };
 
 class company
 {
-    private: string cnpj;
-    private: string compname;
+    private:
+        string cnpj;
+        string compname;
+
+
+    public:
+        void DataEditor()
+        {
+            cout<<"Insira o nome da empresa";
+            cin.ignore();
+            getline(cin,compname);
+            cout<<"Insira o CNPJ da empresa";
+            cin.ignore();
+            getline(cin,cnpj);
+        };
 };
 
 
 int main(void)
 {
- new worker joao;
- joao.Inf_Editor();
+menu:
+cout<<"1-Criar uma empresa"<<endl<<"2-Editar dados de uma empresa ja existente";
+char op=getche();
+if(op=='1')
+    {
+
+    }
 }
+
