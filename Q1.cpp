@@ -73,6 +73,7 @@ class company
     private:
         string cnpj;
         string compname;
+    //*funcionarios=new worker;??
 
 
     public:
@@ -97,5 +98,8 @@ if(op=='1')
     {
 
     }
+if(op=='2')
+    {
+        
+    }
 }
-
