@@ -7,7 +7,7 @@
 
 using namespace std;
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-void gravaComando(char a, char b, /*fstream &out*/FILE *arq, string line)
+void gravaComando(char a, char b, FILE *arq, string line)
 {
     char num[3];
     if(line=="An;")
@@ -206,15 +206,8 @@ int main()
                         fread(&a,sizeof(char),1,arqIn);
                         line1+=a;
                     }while(line1[i]!='\n' || line1[i]!=EOF);
-                    //char args[4];
-                    //strcpy(args,line1.c_str());
                     string comando;
                     comando="envia "+comport+" "+line1[0]+" "+line1[1]+" "+line1[2];
-                    //comando+=args[0];
-                    //comando+=" ";
-                    //comando+=args[1];
-                    //comando+=" ";
-                    //comando+=args[2];
                     cout<<comando<<endl;
                     system(comando.c_str());
                 }
