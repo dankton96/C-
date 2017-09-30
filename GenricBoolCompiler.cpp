@@ -176,15 +176,15 @@ int main()
     }
     else
     {
-        if(/*!arqIn.is_open()*/arqIn==NULL)
+        if(arqIn==NULL)
             {cout<<"Falha ao ler codigo fonte - verifique as permissoes de leitura em seu S.O."<<endl; return 1;}
-        if(/*!arqOut.is_open()*/arqOut==NULL)
+        if(arqOut==NULL)
             {cout<<"Falha ao gerar arquivo compilado - verifique as permissoes de escrita em seu S.O."<<endl; return 2;}
     }
     //execute the .hex in arduino
     cout<<"Transmissao das instrucoes ao arduino"<<endl;
     arqOut=fopen("74181.hex","rb");
-    if(/*!arqOut.is_open()*/arqOut==NULL)
+    if(arqOut==NULL)
         {cout<<"Falha ao ler codigo fonte - verifique as permissoes de leitura em seu S.O."<<endl; return 1;}
     else
         {
