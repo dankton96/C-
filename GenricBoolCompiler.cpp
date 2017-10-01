@@ -9,118 +9,50 @@ using namespace std;
 void gravaComando(char a, char b, FILE *arq, string line)
 {
     char num[3];
-    if(line=="An;")
-        {
-        num[2]='0';
-        num[1]=b;
-        num[0]=a;
-        if(fwrite(&num,sizeof(char),3,arq)!=3){cout<<"Erro ao compilar arquivo"<<endl;return;}
-        }
-    if(line=="nAoB;")
-        {
-        num[2]='1';
-        num[1]=b;
-        num[0]=a;
-        if(fwrite(&num,sizeof(char),3,arq)!=3){cout<<"Erro ao compilar arquivo"<<endl;return;}
-        }
-    if(line=="AnB;")
-        {
-        num[2]='2';
-        num[1]=b;
-        num[0]=a;
-        if(fwrite(&num,sizeof(char),3,arq)!=3){cout<<"Erro ao compilar arquivo"<<endl;return;}
-        }
-    if(line=="zeroL;")
-        {
-        num[2]='3';
-        num[1]=b;
-        num[0]=a;
-        if(fwrite(&num,sizeof(char),3,arq)!=3){cout<<"Erro ao compilar arquivo"<<endl;return;}
-        }
-    if(line=="nAeB;")
-        {
-        num[2]='4';
-        num[1]=b;
-        num[0]=a;
-        if(fwrite(&num,sizeof(char),3,arq)!=3){cout<<"Erro ao compilar arquivo"<<endl;return;}
-        }
-    if(line=="Bn;")
-        {
-        num[2]='5';
-        num[1]=b;
-        num[0]=a;
-        if(fwrite(&num,sizeof(char),3,arq)!=3){cout<<"Erro ao compilar arquivo"<<endl;return;}
-        }
-    if(line=="AxB;")
-        {
-        num[2]='6';
-        num[1]=b;
-        num[0]=a;
-        if(fwrite(&num,sizeof(char),3,arq)!=3){cout<<"Erro ao compilar arquivo"<<endl;return;}
-        }
-    if(line=="ABn;")
-        {
-        num[2]='7';
-        num[1]=b;
-        num[0]=a;
-        if(fwrite(&num,sizeof(char),3,arq)!=3){cout<<"Erro ao compilar arquivo"<<endl;return;}
-        }
-    if(line=="AnoB;")
-        {
-        num[2]='8';
-        num[1]=b;
-        num[0]=a;
-        if(fwrite(&num,sizeof(char),3,arq)!=3){cout<<"Erro ao compilar arquivo"<<endl;return;}
-        }
-    if(line=="nAxB;")
-        {
-        num[2]='9';
-        num[1]=b;
-        num[0]=a;
-        if(fwrite(&num,sizeof(char),3,arq)!=3){cout<<"Erro ao compilar arquivo"<<endl;return;}
-        }
-    if(line=="B;")
-        {
-        num[2]='a';
-        num[1]=b;
-        num[0]=a;
-        if(fwrite(&num,sizeof(char),3,arq)!=3){cout<<"Erro ao compilar arquivo"<<endl;return;}
-        }
-    if(line=="AB;")
-        {
-        num[2]='b';
-        num[1]=b;
-        num[0]=a;
-        if(fwrite(&num,sizeof(char),3,arq)!=3){cout<<"Erro ao compilar arquivo"<<endl;return;}
-        }
-    if(line=="umL;")
-        {
-        num[2]='c';
-        num[1]=b;
-        num[0]=a;
-        if(fwrite(&num,sizeof(char),3,arq)!=3){cout<<"Erro ao compilar arquivo"<<endl;return;}
-        }
-    if(line=="AoBn;")
-        {
-        num[2]='d';
-        num[1]=b;
-        num[0]=a;
-        if(fwrite(&num,sizeof(char),3,arq)!=3){cout<<"Erro ao compilar arquivo"<<endl;return;}
-        }
-    if(line=="AoB;")
-        {
-        num[2]='e';
-        num[1]=b;
-        num[0]=a;
-        if(fwrite(&num,sizeof(char),3,arq)!=3){cout<<"Erro ao compilar arquivo"<<endl;return;}
-        }
-    if(line=="A;")
-        {
-        num[2]='f';
-        num[1]=b;
-        num[0]=a;
-        if(fwrite(&num,sizeof(char),3,arq)!=3){cout<<"Erro ao compilar arquivo"<<endl;return;}
-        }
+    
+    num[0] = a;
+    num[1] = b;
+
+    switch(line) {
+        case "An;":
+            num[2] = '0'; break;
+        case "nAoB;":
+            num[2] = '1'; break;
+        case "AnB;":
+            num[2] = '2'; break;
+        case "zeroL;":
+            num[2] = '3'; break;
+        case "nAeB;":
+            num[2] = '4'; break;
+        case "Bn;":
+            num[2] = '5'; break;
+        case "AxB;":
+            num[2] = '6'; break;
+        case "ABn;":
+            num[2] = '7'; break;
+        case "AnoB;":
+            num[2] = '8'; break;
+        case "nAxB;":
+            num[2] = '9'; break;
+         case "B;":
+            num[2] = 'a'; break;
+         case "AB;":
+            num[2] = 'b'; break;
+         case "umL;":
+            num[2] = 'c'; break;
+         case "AoBn;":
+            num[2] = 'd'; break;
+         case "AoB;":
+            num[2] = 'e'; break;
+         case "A;":
+            num[2] = 'f'; break;
+    }
+    int written = fwrite(&num, sizeof(char), 3, arq);
+    
+    if(written != 3){
+        cout << "Erro ao compilar arquivo" << endl;
+        return;
+    }
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 bool foundInObjStr(string tofind, char pattern[],size_t &posfind)
